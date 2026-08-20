@@ -84,6 +84,72 @@ export const en: Record<AgentPresetSettingsKey, string> = {
   deleting: 'Deleting…',
 }
 
+/** Spanish copy, checked complete against the zh key set. */
+export const es: Record<AgentPresetSettingsKey, string> = {
+  title: 'Preset de agente',
+  description: 'Se aplica a las sesiones que inicies a partir de ahora. Las sesiones en ejecución conservan el preset con el que comenzaron.',
+  loading: 'Cargando presets…',
+  error: 'No se pudieron cargar los presets de agente.',
+  userTrust: 'Personalizado',
+  seatHint: 'Preset de agente para la sesión que estás a punto de iniciar',
+  headerHint: 'El preset de agente que ejecuta esta sesión, fijado cuando comenzó',
+  nav: 'Presets de agente',
+  sectionIntro:
+    'Un preset es la composición de plugins que ejecuta el agente de una sesión: sus herramientas, prompt y capacidades. '
+    + 'Duplica uno existente y hazlo tuyo, o deja que el agente redacte uno para ti en el modo Creador.',
+  builtIn: 'Integrado',
+  setDefault: 'Establecer como predeterminado',
+  view: 'Ver',
+  presetStandardName: 'Modo estándar',
+  presetStandardDescription:
+    'Agente de codificación completo con edición de archivos, shell, búsqueda de archivos y web, skills, planificación, objetivos, subagentes y flujos de trabajo.',
+  presetCodeName: 'Modo PTC',
+  presetCodeDescription:
+    'Todas las capacidades del modo Estándar, con las herramientas expuestas a través del Code Mode SDK para que el modelo pueda combinar operaciones de varios pasos en un solo programa TypeScript.',
+  presetMinimalName: 'Modo mínimo',
+  presetMinimalDescription:
+    'Agente de codificación de dos herramientas con bash persistente y str_replace_editor.',
+  presetCordisName: 'Modo Creador',
+  presetCordisDescription:
+    'Pensado para crear presets de agente personalizados, con todas las capacidades del modo Estándar más inspección en tiempo de ejecución, experimentos con plugins y guía para la creación de presets.',
+  duplicate: 'Duplicar',
+  duplicateUnavailable: 'Este despliegue no tiene un directorio de presets con permisos de escritura',
+  delete: 'Eliminar',
+  presetId: 'Identificador',
+  presetIdPlaceholder: 'my-agent',
+  displayName: 'Nombre',
+  displayNamePlaceholder: 'Se muestra en el selector; por defecto es el identificador',
+  inUse: 'En uso',
+  builtInGroup: 'Integrado',
+  customGroup: 'Personalizado',
+  noDescription: 'Sin descripción.',
+  brokenBadge: 'Error al cargar',
+  brokenNoCopy: 'Un preset que no se pudo cargar no puede duplicarse',
+  copyOf: 'Copiado de',
+  composition: 'Composición (agent.cordis.yml)',
+  cancel: 'Cancelar',
+  close: 'Cerrar',
+  retry: 'Reintentar',
+  copyTitle: 'Duplicar preset',
+  copyIntro:
+    'El preset completo se copia en esta máquina. El identificador se convierte en el nombre de su directorio y no se puede '
+    + 'cambiar después; todo lo demás se edita en los propios archivos del preset.',
+  create: 'Crear',
+  creating: 'Creando…',
+  creatorDraft: 'Redacta un preset personalizado con el modo Creador',
+  openLocation: 'Abrir carpeta',
+  showLocation: 'Mostrar ubicación',
+  revealedPathLabel: 'Archivos del preset:',
+  idRequired: 'Asigna un identificador al preset.',
+  idInvalid: 'Usa letras minúsculas, dígitos y guiones, comenzando por una letra o un dígito.',
+  idTaken: 'Ya existe un preset con este identificador.',
+  deleteTitle: '¿Eliminar este preset?',
+  deleteDescription:
+    'El directorio del preset se elimina. Las sesiones que ya se ejecutan con él siguen funcionando; las sesiones nuevas no podrán seleccionarlo.',
+  deleteConfirm: 'Eliminar',
+  deleting: 'Eliminando…',
+}
+
 /** Simplified Chinese copy. */
 export const zh: Record<AgentPresetSettingsKey, string> = {
   title: 'Agent 预设',

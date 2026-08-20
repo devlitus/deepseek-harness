@@ -12,7 +12,7 @@ typed locale 标准席位（`locale:` 注册声明 → 框架注入强类型 `t`
 
 **注册期文本走 label thunk。** ui-slots 的 list 注册项 `label` 接受 `SlotLabel = string | (() => string)`；owner 投影 ledger 行时必须经 `resolveSlotLabel` 解析（不裸读 `options.label`），并让读取点跟随 locale revision（outlet 自身订阅 revision；ledger 外的投影如 ui-settings 导航把 revision 并进缓存键、订阅双源）。thunk 每次读取时求值，语言切换零 ledger churn——没有重注册、version 不动，`locale/change` 重注册接线全部删除。
 
-**组件文案走标准 `t` 席位；深层子组件用 prop 下传**，类型写 `XxxProps['t']`。字典规范形态不变：`zh satisfies Record<string, string>` 为 key 源、`en satisfies Record<XxxKey, string>` 锁双语平衡。
+**组件文案走标准 `t` 席位；深层子组件用 prop 下传**，类型写 `XxxProps['t']`。字典规范形态不变：`zh satisfies Record<string, string>` 为 key 源、`en`／`es` 字典锁全 locale 平衡（`satisfies Record<XxxKey, string>` 或该文件的等价写法）。
 
 **zero-cordis 原子组件（ui-primitives）文案 props 化**：`HoverCard` 的 `copyLabel`/`copiedLabel`、`TerminalBlock`/`JsonTree` 的 `labels`、`CodeBlock` 的 `copyLabel`/`copiedLabel`、`MarkdownText` 的 `codeLabels`、`JsonBlock` 的 `truncatedLabel`、`ConnectionBanner` 的 `label`、`Modal` 的 `closeLabel`——默认值即原硬编码字符串，不传 props 的消费方渲染逐字节不变。已本地化的插件从自己的 `t` 席位传字典驱动的 label；传对象 props 的调用点按 `t` 身份 memo（`MarkdownText` 的组件表按 `codeLabels` 身份缓存）。
 

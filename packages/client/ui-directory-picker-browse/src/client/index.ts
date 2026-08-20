@@ -27,9 +27,10 @@ export const inject = ['slots', 'workspaces', 'locale']
  */
 export function apply(ctx: ClientContext): void {
   ctx.effect(() => {
-    // The two dictionaries land as a unit: if the second registration hits a
-    // rival owner of the namespace, the first rolls back before the throw —
-    // a failed activation must not squat the namespace's other locale.
+    // The dictionaries land as a unit: if a later registration hits a
+    // rival owner of the namespace, the earlier ones roll back before the
+    // throw — a failed activation must not squat the namespace's other
+    // locales.
     const disposers: (() => void)[] = []
     const dictionaries: [locale: string, dict: Record<string, string>][] = [
       ['zh', {
@@ -61,6 +62,21 @@ export function apply(ctx: ClientContext): void {
         'browser.loading': 'Loading…',
         'browser.truncated': 'Too many folders to list; only the beginning is shown.',
         'browser.showHidden': 'Show hidden files',
+      }],
+      ['es', {
+        'browser.title': 'Seleccionar directorio de trabajo',
+        'browser.home': 'Carpeta personal',
+        'browser.newFolder': 'Nueva carpeta',
+        'browser.folderName': 'Nombre de la carpeta',
+        'browser.createIn': 'Nueva carpeta en "{name}"',
+        'browser.untitledFolder': 'Carpeta sin nombre',
+        'browser.create': 'Crear',
+        'browser.cancel': 'Cancelar',
+        'browser.open': 'Abrir',
+        'browser.editPath': 'Editar ruta',
+        'browser.loading': 'Cargando…',
+        'browser.truncated': 'Demasiadas carpetas para listar; solo se muestra el principio.',
+        'browser.showHidden': 'Mostrar archivos ocultos',
       }],
     ]
     try {

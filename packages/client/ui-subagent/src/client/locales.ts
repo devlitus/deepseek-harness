@@ -77,5 +77,42 @@ export const en: Record<SubagentKey, string> = {
   'readonly.body': 'The parent session is offline; reopen it to continue sending messages.',
 }
 
+/** Spanish dictionary, key-identical to the Chinese source of truth. */
+export const es: Record<SubagentKey, string> = {
+  'diagnostic.corrupt': 'registro de sesión dañado',
+  'diagnostic.unsupported': 'versión del registro de subagente no compatible',
+  'diagnostic.unavailable': 'registro de sesión no disponible temporalmente',
+  'duration.seconds': '{seconds} s',
+  'duration.minutes': '{minutes} min {seconds} s',
+  'duration.hours': '{hours} h {minutes} min {seconds} s',
+  'duration.days': '{days} d',
+  'duration.daysHours': '{days} d {hours} h',
+  'duration.months': '~{months} meses',
+  'duration.monthsDays': '~{months} meses {days} d',
+  'duration.years': '~{years} años',
+  'duration.yearsMonths': '~{years} años {months} meses',
+  'duration.exactDays': '{days} d {hours} h {minutes} min {seconds} s',
+  'duration.exactTitle': 'Duración activa total: {duration}',
+  'loading.label': 'Cargando subagentes…',
+  'loading.aria': 'Cargando subagentes',
+  'load.error': 'No se pudieron cargar los subagentes',
+  'retry': 'Reintentar',
+  'mode.oneShot': 'de un solo uso',
+  'mode.continuable': 'continuable',
+  'activity.running': 'en ejecución',
+  'activity.inactive': 'inactivo',
+  'branch.collapse': 'Contraer descendientes de {label}',
+  'branch.expand': 'Expandir descendientes de {label}',
+  'count.total.one': '{count} subagente',
+  'count.total.other': '{count} subagentes',
+  'count.running.one': '{count} subagente en ejecución',
+  'count.running.other': '{count} subagentes en ejecución',
+  'tree.aria': 'Sesiones de subagentes',
+  'readonly.oneShot.title': 'Registro de subagente de un solo uso',
+  'readonly.title': 'Este subagente es de solo lectura por ahora',
+  'readonly.oneShot.body': 'Las tareas de un solo uso no aceptan mensajes de seguimiento; revisa aquí el registro de ejecución completo.',
+  'readonly.body': 'La sesión principal está desconectada; vuelve a abrirla para seguir enviando mensajes.',
+}
+
 /** Key domain of the `subagent` namespace (zh is the source of truth). */
 export type SubagentKey = keyof typeof zh
