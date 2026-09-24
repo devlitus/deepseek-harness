@@ -2,7 +2,7 @@
 
 import { spawnSync } from 'node:child_process'
 import { rmSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { extname, resolve } from 'node:path'
 import { parseArgs } from 'node:util'
 import {
   CLIENT_BUILD_RECORD_PATH,
@@ -18,7 +18,12 @@ function runScript(script: string, environment: NodeJS.ProcessEnv): void {
   if (packageManager === undefined || packageManager === '') {
     throw new Error('build: npm_execpath is unavailable; invoke the build through a package script')
   }
-  const result = spawnSync(process.execPath, [packageManager, 'run', script], {
+  // Standalone package manager executables (e.g. pnpm's native .exe) can't be loaded as a
+  // Node module, so run them directly instead of routing through `node <packageManager>`.
+  const isNativeExecutable = extname(packageManager) === '.exe'
+  const command = isNativeExecutable ? packageManager : process.execPath
+  const args = isNativeExecutable ? ['run', script] : [packageManager, 'run', script]
+  const result = spawnSync(command, args, {
     cwd: resolve(import.meta.dirname, '..'),
     env: environment,
     stdio: 'inherit',
